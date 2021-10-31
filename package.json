@@ -1,0 +1,20 @@
+{
+  "name": "blog1.0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@kangc/v-md-editor": "^2.3.10",
+    "axios": "^0.21.4",
+    "element-plus": "^1.1.0-beta.10",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.11"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0"
+  }
+}
