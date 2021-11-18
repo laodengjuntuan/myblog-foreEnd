@@ -18,10 +18,11 @@ import comments from './components/comments.vue'
 import allArticals from './components/allArticals.vue'
 import newArtical from './components/newArtical.vue'
 import category from './components/category'
+import { CoffeeCup, Document, ChatLineSquare, HomeFilled } from '@element-plus/icons' 
 
 VueMarkdownEditor.use(vuepressTheme, {
     Prism,
-  });
+});
   
 const routes = [
     {
@@ -53,4 +54,8 @@ const app = createApp(App)
 app.use(ElementPlus)
 app.use(router)
 app.use(VueMarkdownEditor)
+app.component('coffeeCup', CoffeeCup)
+app.component('document', Document)
+app.component('chatLineSquare', ChatLineSquare)
+app.component('homeFilled', HomeFilled)
 app.mount('#app')

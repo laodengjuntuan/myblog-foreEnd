@@ -33,6 +33,7 @@
 </template>
 <script>
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 export default {
     data() {
         return {
@@ -46,9 +47,17 @@ export default {
           axios.post("/background/category", {
               name: this.newCategory
           }).then(function(res) {
-              console.log(res);
+            ElMessage({
+              showClose: true,
+              message: '添加成功！',
+              type: 'success',
+            })
           }).catch(function (err) {
-              console.log(err);
+              ElMessage({
+                showClose: true,
+                message: '添加失败' + err,
+                type: 'error',
+              })
           })
       },
       handleEdit(index, row) {

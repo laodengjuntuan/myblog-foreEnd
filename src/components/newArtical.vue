@@ -32,6 +32,7 @@
 
 <script>
 import axios from 'axios'
+import { ElMessage } from 'element-plus'
 
 export default {
     name: 'app',
@@ -54,10 +55,18 @@ export default {
           category: this.form.category
         })
         .then(function(response) {
-          console.log(response);
+          ElMessage({
+            showClose: true,
+            message: '提交成功！',
+            type: 'success',
+          })
         })
         .catch(function(error) {
-          console.log(error);
+          ElMessage({
+            showClose: true,
+            message: '提交失败' + error,
+            type: 'error',
+          })
         })
       }
     },

@@ -12,14 +12,14 @@
                   active-text-color="#ffd04b"
                 >
                 <router-link to="/">
-                  <el-menu-item index="1">
-                      <i class="el-icon-menu"></i>
+                  <el-menu-item index="1" class="flexbox">
+                    <el-icon :size="20" class="mr5"><coffee-cup /></el-icon>
                       <template #title> 主页</template>
                   </el-menu-item>
                 </router-link>
                   <el-sub-menu index="2">
                     <template #title>
-                      <i class="el-icon-document"></i>       
+                      <el-icon :size="20" class="mr5"><document /></el-icon>      
                       <span>文章</span>
                     </template>
                     <router-link to="allArticals">
@@ -33,11 +33,17 @@
                     </router-link>
                   </el-sub-menu>
                   <router-link to="/comments">
-                      <el-menu-item index="3">
-                          <i class="el-icon-s-comment"></i>
+                      <el-menu-item index="3" class="flexbox">
+                          <el-icon :size="20" class="mr5"><chat-line-square /></el-icon>
                           <template #title>评论</template>
                       </el-menu-item>
                   </router-link>
+                  <a href="/">
+                    <el-menu-item index="4" class="flexbox">
+                            <el-icon :size="20" class="mr5"><home-filled /></el-icon>
+                            <template #title>返回前台</template>
+                    </el-menu-item>
+                  </a>
                 </el-menu>
               </el-aside>
             
@@ -86,5 +92,12 @@ a {
 
 .el-aside {
     color: var(--el-text-color-primary);
+}
+.mr5 {
+  margin-right: 5px;
+}
+.flexbox {
+  display: flex;
+  align-items: baseline;
 }
 </style>
