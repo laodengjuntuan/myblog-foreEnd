@@ -85,6 +85,7 @@ export default {
 </script>
 <style lang="css">
 /* 由于我这里的样式未用scope，它里面的样式会影响到别的组件 */
+/* 2021/11/18 test */
 .title {
     text-align: left;
     font-size: 24px;
