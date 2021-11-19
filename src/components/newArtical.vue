@@ -6,20 +6,26 @@
     <el-form ref="form" :model="form" style="width: 100%">
       <el-row :gutter="20" style="min-width: 600px">
       <el-col :span="16">
-          <el-input placeholder="文章标题" v-model="form.title" style="margin-bottom: 20px"></el-input>
+        <el-form-item prop='title'>
+          <el-input placeholder="文章标题" v-model="form.title" style="margin-bottom: 20px" prop="form.title"></el-input>
+        </el-form-item>
+        <el-form-item prop="content">
           <v-md-editor v-model="form.content" height="400px"></v-md-editor>
+        </el-form-item>
       </el-col>
       <el-col :span="8">
           <el-row>
-            <el-select v-model="form.category" placeholder="所属分类" >
-              <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-              >
-              </el-option>
-            </el-select>
+            <el-form-item prop="category">
+              <el-select v-model="form.category" placeholder="所属分类" >
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
           </el-row>
           <el-row>
               <el-button type="primary" class="mt-20" @click="onSubmit">提交</el-button>
@@ -55,6 +61,7 @@ export default {
           category: this.form.category
         })
         .then(function(response) {
+          console.log('post success')
           ElMessage({
             showClose: true,
             message: '提交成功！',
@@ -68,6 +75,8 @@ export default {
             type: 'error',
           })
         })
+
+        this.$refs['form'].resetFields()
       }
     },
     mounted() {

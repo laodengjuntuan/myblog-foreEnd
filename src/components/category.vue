@@ -59,6 +59,7 @@ export default {
                 type: 'error',
               })
           })
+          this.newCategory = ''
       },
       handleEdit(index, row) {
         console.log(index, row)
