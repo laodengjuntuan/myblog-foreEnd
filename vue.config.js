@@ -15,7 +15,6 @@ module.exports = {
             '/api': {
                 target: 'http://localhost:2999',
                 changeOrigin: true,
-                // 这里也太奇怪了点吧，必须要写pathRewrite才能代理
                 pathRewrite: { '^/api': '' },
             }
         }

@@ -49,17 +49,18 @@
             
               <el-container>
                 <el-header style="background-color:#fff; border-bottom:1px solid #dcdfe6;text-align: right; font-size: 14px">
-                  <el-dropdown>
+                  <el-dropdown v-if="username">
                     <i class="el-icon-setting" style="margin-right: 15px"></i>
                     <template #dropdown>
                       <el-dropdown-menu>
-                        <el-dropdown-item>查看</el-dropdown-item>
-                        <el-dropdown-item>新增</el-dropdown-item>
-                        <el-dropdown-item>删除</el-dropdown-item>
+                        <el-dropdown-item @click="logout">退出</el-dropdown-item>
                       </el-dropdown-menu>
                     </template>
                   </el-dropdown>
-                  <span>王小虎</span>
+                  <span>
+                    <a v-if="username" class="user">{{ username }}</a>
+                    <a v-else class="user">未登录</a>  
+                  </span>
                 </el-header>
             
                 <el-main>
@@ -70,8 +71,25 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-
+  data() {
+    return {
+      username: ''
+    }
+  },
+  methods: {
+    logout() {
+      axios.get('/background/logout').then((res) => {
+        this.username = ''
+      })
+    }
+  },
+  beforeMount() {
+    axios.get('/background/user').then((res) => {
+      this.username = res.data
+    })
+  },
 }
 </script>
 
@@ -99,5 +117,8 @@ a {
 .flexbox {
   display: flex;
   align-items: baseline;
+}
+.user {
+  color: #000;
 }
 </style>
